@@ -16,14 +16,19 @@ function addToLibrary(book) {
   myLibrary.push(book);
 }
 
-function showLibrary() {
-  myLibrary.forEach((book) => {
-    console.log(book.title);
-  });
-}
+// function showLibrary() {
+//   myLibrary.forEach((book) => {
+//     console.log(book.title);
+//   });
+// }
 
-let book1 = new Book("Капитанская дочка", "А. Пушкин", 250, true);
-let book2 = new Book("Преступление и наказание", "Ф. Достоевский", 345, true);
+let book1 = new Book("Капитанская дрочка", "А. Пушкин", 250, true);
+let book2 = new Book(
+  "Поступление в АКТ и наказание",
+  "Ф. Достоевский",
+  345,
+  true,
+);
 let book3 = new Book("Убийство в восточном экспрессе", "А. Кристи", 198, false);
 
 addToLibrary(book1);
@@ -32,4 +37,31 @@ addToLibrary(book3);
 
 console.log(myLibrary);
 
-showLibrary();
+const catalog = document.querySelector(".catalog");
+function ShowLibrary() {
+  myLibrary.forEach((book) => {
+    const card = document.createElement("div");
+    const title = document.createElement("p");
+    const author = document.createElement("p");
+    const pages = document.createElement("p");
+
+    card.classList.add("card");
+    title.classList.add("card__title");
+    author.classList.add("card__author");
+    pages.classList.add("card__pages");
+
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = `${book.pages} стр.`;
+
+    card.append(title, author, pages);
+
+    catalog.appendChild(card);
+  });
+}
+
+const add_btn = document.querySelector(".add__btn");
+
+add_btn.addEventListener("click", () => {});
+
+ShowLibrary();
