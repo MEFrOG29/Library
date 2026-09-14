@@ -61,7 +61,16 @@ function ShowLibrary() {
 }
 
 const add_btn = document.querySelector(".add__btn");
+const dialog = document.querySelector(".newBook__dialog");
+const form = document.querySelector(".newBook__form");
+const cancelBtn = document.querySelector(".cancel__btn");
 
-add_btn.addEventListener("click", () => {});
+add_btn.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+cancelBtn.addEventListener("click", () => {
+  dialog.close();
+});
 
 ShowLibrary();

@@ -14,5 +14,44 @@
       <button class="add__btn">Добавить книгу</button>
     </div>
     <div class="catalog"></div>
+    <dialog class="newBook__dialog">
+      <form method="dialog" class="newBook__form">
+        <h2 class="title__form">Добавление книги</h2>
+        <div class="form__group">
+          <label for="title">Название книги:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            placeholder="Например: Мастер и Маргарита"
+          />
+        </div>
+        <div class="form__group">
+          <label for="author">Автор книги:</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            required
+            placeholder="Например: М. В. Булгаков"
+          />
+        </div>
+        <div class="form__group">
+          <label for="pages">Кол-во страниц:</label>
+          <input
+            type="number"
+            id="pages"
+            name="pages"
+            required
+            placeholder="Например: 165"
+          />
+        </div>
+        <div class="dialog__actions">
+          <button type="button" class="cancel__btn">Отмена</button>
+          <button type="submit" class="save__btn">Сохранить</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>
