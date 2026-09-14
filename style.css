@@ -9,6 +9,8 @@
 
 :root {
   --main-background-color: rgb(27, 6, 46);
+  --form-background-color: rgb(56, 0, 129);
+  --card-background-color: rgb(146, 146, 144, 0.5);
   --text-color: rgb(255, 255, 255);
   --btn-color: rgb(105, 1, 146);
 }
@@ -17,6 +19,7 @@ html {
   background-color: var(--main-background-color);
 }
 
+h2,
 p {
   margin: 0;
   padding: 0;
@@ -68,7 +71,7 @@ p {
   border: 0.2em solid white;
   border-radius: 1.5rem;
   box-shadow: 0 0 2rem white;
-  background-color: rgb(146, 146, 144, 0.5);
+  background-color: var(--card-background-color);
 }
 .card__title {
   font-family: "ramona-light", sans-serif;
@@ -91,4 +94,62 @@ p {
   margin-bottom: 0.5rem;
   text-align: center;
   color: var(--text-color);
+}
+
+.newBook__dialog {
+  padding: 0;
+  border: 1px solid var(--text-color);
+  border-radius: 1.5rem;
+}
+
+.newBook__form {
+  width: 22rem;
+  height: 22rem;
+  padding: 2rem;
+  border: 0;
+  background-color: var(--form-background-color);
+}
+
+.title__form {
+  font-family: "ramona-bold", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.form__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "ramona-light", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+
+input {
+  background-color: var(--card-background-color);
+  border: 0;
+  border-radius: 0.5rem;
+  height: 2em;
+  color: var(--text-color);
+}
+
+.dialog__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+  margin-top: 4rem;
+}
+
+.dialog__button {
+  width: 6rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 1.5rem;
+  font-family: "ramona-light", sans-serif;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: var(--btn-color);
 }

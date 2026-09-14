@@ -63,7 +63,7 @@ function ShowLibrary() {
 const add_btn = document.querySelector(".add__btn");
 const dialog = document.querySelector(".newBook__dialog");
 const form = document.querySelector(".newBook__form");
-const cancelBtn = document.querySelector(".cancel__btn");
+const cancelBtn = document.querySelector("#cancel__btn");
 
 add_btn.addEventListener("click", () => {
   dialog.showModal();
@@ -71,6 +71,23 @@ add_btn.addEventListener("click", () => {
 
 cancelBtn.addEventListener("click", () => {
   dialog.close();
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  catalog.replaceChildren();
+  const formData = new FormData(form);
+  const newBook = {
+    title: formData.get("title"),
+    author: formData.get("author"),
+    pages: formData.get("pages"),
+  };
+
+  addToLibrary(newBook);
+
+  form.reset();
+  dialog.close();
+  ShowLibrary();
 });
 
 ShowLibrary();
