@@ -1,12 +1,11 @@
-function Book(title, author, pages, isRead) {
+function Book(title, author, pages) {
   this.id = crypto.randomUUID();
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.isRead = isRead;
 
   const info = function () {
-    console.log(`The ${title} by ${author}, ${pages} pages, ${isRead} `);
+    console.log(`The ${title} by ${author}, ${pages} pages.`);
   };
 }
 
@@ -22,14 +21,9 @@ function addToLibrary(book) {
 //   });
 // }
 
-let book1 = new Book("Капитанская дрочка", "А. Пушкин", 250, true);
-let book2 = new Book(
-  "Поступление в АКТ и наказание",
-  "Ф. Достоевский",
-  345,
-  true,
-);
-let book3 = new Book("Убийство в восточном экспрессе", "А. Кристи", 198, false);
+let book1 = new Book("Капитанская дрочка", "А. Пушкин", 250);
+let book2 = new Book("Поступление в АКТ и наказание", "Ф. Достоевский", 345);
+let book3 = new Book("Убийство в восточном экспрессе", "А. Кристи", 198);
 
 addToLibrary(book1);
 addToLibrary(book2);
@@ -44,17 +38,20 @@ function ShowLibrary() {
     const title = document.createElement("p");
     const author = document.createElement("p");
     const pages = document.createElement("p");
+    const deleteBtn = document.createElement("button");
 
     card.classList.add("card");
     title.classList.add("card__title");
     author.classList.add("card__author");
     pages.classList.add("card__pages");
+    deleteBtn.classList.add("card__delete__btn");
 
+    card.dataset.id = book.id;
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = `${book.pages} стр.`;
 
-    card.append(title, author, pages);
+    card.append(title, author, pages, deleteBtn);
 
     catalog.appendChild(card);
   });
